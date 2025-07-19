@@ -16,17 +16,15 @@ public class CreateProductCommandValidator : AbstractValidator<CreateProductComm
         RuleFor(x => x.Price).GreaterThan(0).WithMessage("Price must be greater than 0");
     }
 }
-internal class CreateProductHandler(IDocumentSession session, IValidator<CreateProductCommand> validator)
+
+internal class CreateProductHandler
+    (IDocumentSession session, ILogger<CreateProductHandler> logger)
     : ICommandHandler<CreateProductCommand, CreateProductResult>
 {
     public async Task<CreateProductResult> Handle(CreateProductCommand command, CancellationToken cancellationToken)
     {
-        var result = await validator.ValidateAsync(command, cancellationToken);
-        var errors = result.Errors.Select(x => x.ErrorMessage).ToList();
-        
-        if (errors.Any())
-            throw new ValidationException(errors.FirstOrDefault());
 
+        logger.LogInformation("Create Product Command Handler.Handle called with {@Command}", command);
         Product product = new Product
         {
             Name = command.Name,
