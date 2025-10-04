@@ -67,6 +67,8 @@ public class DiscountService
         dbContext.Coupons.Remove(coupon);
         await dbContext.SaveChangesAsync();
 
+        logger.LogInformation("Discount is successfully Removed for ProductName : {ProductName}", request.ProductName);
+
         return new DeleteDiscountResponse { Success = true };
     }
 }

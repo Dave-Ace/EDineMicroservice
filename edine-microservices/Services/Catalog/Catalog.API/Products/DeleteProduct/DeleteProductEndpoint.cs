@@ -3,8 +3,6 @@ using Catalog.API.Products.GetProductById;
 
 namespace Catalog.API.Products.DeleteProduct;
 
-//public record DeleteProductRequest(Guid Id);
-
 public record class DeleteProductResponse(bool IsSuccess);
 
 public class DeleteProductEndpoint : ICarterModule

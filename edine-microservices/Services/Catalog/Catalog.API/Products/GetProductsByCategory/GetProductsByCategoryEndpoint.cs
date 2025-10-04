@@ -3,8 +3,6 @@ using Catalog.API.Products.GetProductById;
 
 namespace Catalog.API.Products.GetProductsByCategory;
 
-//public record GetProductsByCategoryRequest()
-
 public record GetProductsByCategoryResponse(IEnumerable<Product> Products);
 
 public class GetProductsByCategoryEndpoint : ICarterModule

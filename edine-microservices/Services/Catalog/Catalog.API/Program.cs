@@ -20,7 +20,7 @@ builder.Services.AddCarter();
 
 builder.Services.AddMarten(options =>
 {
-    options.Connection(builder.Configuration.GetConnectionString("CatalogConnection"));
+    options.Connection(builder.Configuration.GetConnectionString("CatalogConnection")!);
     options.Schema.For<Product>().Index(x => x.Name);
     options.Schema.For<Product>().Index(x => x.Category);
 }).UseLightweightSessions();
