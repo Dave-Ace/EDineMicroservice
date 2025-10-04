@@ -35,7 +35,7 @@ public class DiscountService
         dbContext.Coupons.Add(coupon);
         await dbContext.SaveChangesAsync();
         
-        logger.LogInformation("Discount is successfully created. ProductName : {ProductName}", coupon.ProductName);
+        logger.LogInformation("Discount is created successfully for ProductName : {ProductName}", coupon.ProductName);
         
         var couponModel = coupon.Adapt<CouponModel>();
         return couponModel;
@@ -51,7 +51,7 @@ public class DiscountService
         dbContext.Coupons.Update(coupon);
         await dbContext.SaveChangesAsync();
 
-        logger.LogInformation("Discount is successfully Updated. ProductName : {ProductName}", coupon.ProductName);
+        logger.LogInformation("Discount is Updated successfully for ProductName : {ProductName}", coupon.ProductName);
         var couponModel = coupon.Adapt<CouponModel>();
         return couponModel;
     }
