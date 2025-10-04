@@ -15,7 +15,8 @@ public class DiscountContext : DbContext
         modelBuilder.Entity<Coupon>().HasData(
             new Coupon { Id = 1, ProductName = "IPhone X", Description = "IPhone Discount", Amount = 150 },
             new Coupon { Id = 2, ProductName = "Samsung 10", Description = "Samsung Discount", Amount = 100 },
-            new Coupon { Id = 3, ProductName = "Nokia 7.1", Description = "Nokia Discount", Amount = 50 }
+            new Coupon { Id = 3, ProductName = "Nokia 7.1", Description = "Nokia Discount", Amount = 50 },
+            new Coupon { Id = 3, ProductName = "Redmi Note 13", Description = "Redmi Discount", Amount = 500 }
         );
     }
 }
