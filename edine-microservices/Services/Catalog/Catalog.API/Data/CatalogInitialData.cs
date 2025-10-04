@@ -43,6 +43,14 @@ public class CatalogInitialData :IInitialData
         },
         new Product()
         {
+            Name = "IPhone 17",
+            Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus.",
+            Image = "product-1.png",
+            Price = 2500.00M,
+            Category = new List<string> {"Smart Phone" }
+        },
+        new Product()
+        {
             Name = "Xiaomi Mi 9",
             Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus.",
             Image = "product-4.png",
