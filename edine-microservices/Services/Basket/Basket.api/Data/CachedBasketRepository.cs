@@ -3,6 +3,7 @@ using Microsoft.Extensions.Caching.Distributed;
 
 namespace Basket.api.Data;
 
+//Decorator pattern design
 public class CachedBasketRepository
     (IBasketRepository repository, IDistributedCache cache) 
     : IBasketRepository
