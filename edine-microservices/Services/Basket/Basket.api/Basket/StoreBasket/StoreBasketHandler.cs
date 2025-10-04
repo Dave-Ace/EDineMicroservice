@@ -22,7 +22,7 @@ public class StoreBasketCommandHandler
 {
     public async Task<StoreBasketResult> Handle(StoreBasketCommand command, CancellationToken cancellationToken)
     {
-
+        // Check if products have a discount
         await DeductDiscount(command.Cart, cancellationToken);
 
         await repository.StoreBasket(command.Cart, cancellationToken);
