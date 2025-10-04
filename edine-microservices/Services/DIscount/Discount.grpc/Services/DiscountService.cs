@@ -20,7 +20,7 @@ public class DiscountService
         if (coupon is null)
             coupon = new Coupon { ProductName = "No Discount", Amount = 0, Description = "No Discount Desc" };
 
-        logger.LogInformation("Discount is retrieved for ProductName : {ProductName}, Amount : {Amount}", coupon.ProductName, coupon.Amount);
+        logger.LogInformation("Discount for ProductName : {ProductName} is retrieved with Amount : {Amount}", coupon.ProductName, coupon.Amount);
         var couponModel = coupon.Adapt<CouponModel>();
         return couponModel;
     }
@@ -35,7 +35,7 @@ public class DiscountService
         dbContext.Coupons.Add(coupon);
         await dbContext.SaveChangesAsync();
         
-        logger.LogInformation("Discount is successfully created. ProductName : {ProductName}", coupon.ProductName);
+        logger.LogInformation("Discount is created successfully for ProductName : {ProductName}", coupon.ProductName);
         
         var couponModel = coupon.Adapt<CouponModel>();
         return couponModel;
@@ -51,7 +51,7 @@ public class DiscountService
         dbContext.Coupons.Update(coupon);
         await dbContext.SaveChangesAsync();
 
-        logger.LogInformation("Discount is successfully Updated. ProductName : {ProductName}", coupon.ProductName);
+        logger.LogInformation("Discount is Updated successfully for ProductName : {ProductName}", coupon.ProductName);
         var couponModel = coupon.Adapt<CouponModel>();
         return couponModel;
     }
