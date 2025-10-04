@@ -51,6 +51,14 @@ public class CatalogInitialData :IInitialData
         },
         new Product()
         {
+            Name = "Redmi Note 13",
+            Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus.",
+            Image = "product-1.png",
+            Price = 1500.00M,
+            Category = new List<string> {"Smart Phone" }
+        },
+        new Product()
+        {
             Name = "HTC U11+ Plus",
             Description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus.",
             Image = "product-4.png",
