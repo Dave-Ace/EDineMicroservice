@@ -22,3 +22,8 @@ public class Order : Aggregate<Guid>
         private set { }
     }
 }
+
+public class OrderItem
+{
+
+}
