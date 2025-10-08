@@ -22,3 +22,28 @@ public class Order : Aggregate<Guid>
         private set { }
     }
 }
+
+public class OrderItem
+{
+    public decimal Price { get; private set; }
+    public int Quantity { get; private set; }
+}
+
+public class Address
+{
+
+}
+
+public class Payment
+{
+
+}
+
+public enum OrderStatus
+{
+    Pending,
+    Processing,
+    Shipped,
+    Delivered,
+    Cancelled
+}
