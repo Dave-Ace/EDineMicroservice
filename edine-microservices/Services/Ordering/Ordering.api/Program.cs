@@ -6,6 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add Services to the container
 
+//Register Injected Service
 builder.Services
     .AddApplicationServices()
     .AddInfrastructureServices(builder.Configuration)
