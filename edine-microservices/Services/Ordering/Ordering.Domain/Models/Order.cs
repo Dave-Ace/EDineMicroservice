@@ -26,6 +26,7 @@ public class Order : Aggregate<Guid>
 public class OrderItem
 {
     public decimal Price { get; private set; }
+    public int Quantity { get; private set; }
 }
 
 public class Address
