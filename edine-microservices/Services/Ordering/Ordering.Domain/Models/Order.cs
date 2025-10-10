@@ -2,6 +2,7 @@
 
 using System.Net.Sockets;
 using Ordering.Domain.Abstractions;
+using Ordering.Domain.Models;
 
 namespace Ordering.Domain.Models;
 
@@ -21,12 +22,6 @@ public class Order : Aggregate<Guid>
         get => OrderItems.Sum(x => x.Price * x.Quantity);
         private set { }
     }
-}
-
-public class OrderItem
-{
-    public decimal Price { get; private set; }
-    public int Quantity { get; private set; }
 }
 
 public class Address
