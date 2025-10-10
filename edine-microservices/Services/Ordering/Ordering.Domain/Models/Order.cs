@@ -23,12 +23,6 @@ public class Order : Aggregate<Guid>
         private set { }
     }
 }
-
-public class Address
-{
-
-}
-
 public class Payment
 {
 
