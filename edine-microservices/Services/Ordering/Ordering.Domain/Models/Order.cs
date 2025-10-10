@@ -2,7 +2,9 @@
 
 using System.Net.Sockets;
 using Ordering.Domain.Abstractions;
+using Ordering.Domain.Enums;
 using Ordering.Domain.Models;
+using Ordering.Domain.ValueObjects;
 
 namespace Ordering.Domain.Models;
 
@@ -12,27 +14,14 @@ public class Order : Aggregate<Guid>
     public IReadOnlyList<OrderItem> OrderItems => _orderItems.AsReadOnly();
 
     public Guid CustomerId { get; private set; } = default;
-    public string OrderName { get; private set; } = default;
-    public Address ShippingAddress { get; private set; } = default;
-    public Address BillingAddress { get; private set; } = default;
-    public Payment Payment {get; private set;} = default;
+    public string OrderName { get; private set; } = default!;
+    public Address ShippingAddress { get; private set; } = default!;
+    public Address BillingAddress { get; private set; } = default!;
+    public Payment Payment {get; private set;} = default!;
     public OrderStatus Status { get; private set; } = OrderStatus.Pending;
     public decimal TotalPrice
     {
         get => OrderItems.Sum(x => x.Price * x.Quantity);
         private set { }
     }
-}
-public class Payment
-{
-
-}
-
-public enum OrderStatus
-{
-    Pending,
-    Processing,
-    Shipped,
-    Delivered,
-    Cancelled
 }
