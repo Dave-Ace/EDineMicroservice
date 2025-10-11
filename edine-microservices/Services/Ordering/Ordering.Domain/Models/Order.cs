@@ -31,6 +31,41 @@ public class Order : Aggregate<OrderId>
             Status = OrderStatus.Pending,
         };
 
+
+        order.AddDomainEvent(new OrderCreatedEvent(order));
+        
         return order;
     }
+
+    public void Update(OrderName orderName, Address shippingAddress, Address billingAddress, Payment payment)
+    {
+        orderName = orderName;
+        ShippingAddress = shippingAddress;
+        BillingAddress = billingAddress;
+        Payment = payment;
+        Status = OrderStatus.Pending;
+
+        AddDomainEvent(new OrderUpdatedEvent(this));
+    }
+
+    public void Add(ProductId productId, int quantity, decimal price)
+    {
+        ArgumentOutOfRangeException.ThrowIfNegativeOrZero(quantity);
+        ArgumentOutOfRangeException.ThrowIfNegativeOrZero(price);
+
+        var orderItem = new OrderItem(Id, productId, price, quantity);
+
+        _orderItems.Add(orderItem);
+    }
+
+    public void Remove(ProductId productId)
+    {
+        var orderItem = _orderItems.FirstOrDefault(x => x.ProductId == productId);
+
+        if (orderItem is not null)
+        {
+            _orderItems.Remove(orderItem);
+        }
+    }
+
 }
