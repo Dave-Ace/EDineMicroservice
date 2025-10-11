@@ -31,6 +31,21 @@ public class Order : Aggregate<OrderId>
             Status = OrderStatus.Pending,
         };
 
+
+        order.AddDomainEvent(new OrderCreatedEvent(order));
+        
         return order;
     }
+
+    public void Update(OrderName orderName, Address shippingAddress, Address billingAddress, Payment payment)
+    {
+        orderName = orderName;
+        ShippingAddress = shippingAddress;
+        BillingAddress = billingAddress;
+        Payment = payment;
+        Status = OrderStatus.Pending;
+
+        AddDomainEvent(new OrderUpdatedEvent(this));
+    }
+
 }
